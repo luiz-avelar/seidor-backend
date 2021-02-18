@@ -8,7 +8,7 @@
 
    - `git clone https://github.com/luiz-avelar/seidor-backend.git`.
    - Entre na pasta do repositório:
-     - `cd sd-05-project-webchat`
+     - `cd seidor-backend`
 
 2. Instale as dependências
 

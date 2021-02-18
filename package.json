@@ -1,0 +1,29 @@
+{
+  "name": "seidor-backend",
+  "version": "1.0.0",
+  "description": "Teste Técnico Prático de Backend da Seidor",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
+    "debug": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/luiz-avelar/seidor-backend.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/luiz-avelar/seidor-backend/issues"
+  },
+  "homepage": "https://github.com/luiz-avelar/seidor-backend#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  }
+}

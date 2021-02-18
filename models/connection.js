@@ -12,6 +12,6 @@ module.exports = {
   registries: [
     { id: 1, startDate: '31/01/2021', endDate: '', car: 'var123', driver: 1 },
     { id: 2, startDate: '05/02/2021', endDate: '', car: 'const123', driver: 2 },
-    { id: 2, startDate: '07/02/2021', endDate: '09/02/2021', car: 'let123', driver: 3 },
+    { id: 3, startDate: '07/02/2021', endDate: '09/02/2021', car: 'let123', driver: 3 },
   ],
 };

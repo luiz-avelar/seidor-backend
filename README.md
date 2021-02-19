@@ -2,6 +2,7 @@
 
 ## Teste Técnico Prático de Backend Seidor
 
+
 ### Como executar
 
 1. Clone o repositório
@@ -17,3 +18,9 @@
 3. Inicie a aplicação
 
     - `npm start`
+
+### Como testar
+
+* Na raíz do repositório
+
+    - `npm test`

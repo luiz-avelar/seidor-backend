@@ -4,7 +4,7 @@ const create = (name) => {
   const id = db.drivers.length + 1;
   const driver = { id, name, available: true };
   db.drivers.push(driver);
-  return driver;
+  return db.drivers[db.drivers.length - 1];
 };
 
 const update = (id, name) => {

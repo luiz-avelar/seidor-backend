@@ -5,7 +5,7 @@ const listByPlate = (plate) => db.cars.find((car) => car.plate === plate);
 const create = (plate, color, brand) => {
   const car = { plate, color, brand, available: true };
   db.cars.push(car);
-  return car;
+  return db.cars[db.cars.length - 1];
 };
 
 const update = (plate, color, brand) => {

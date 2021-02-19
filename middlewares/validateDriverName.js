@@ -1,7 +1,10 @@
 const validateDriverName = (req, res, next) => {
   const { name } = req.body;
 
-  if (!name) return res.status(400).json({ message: 'Missing driver name.' });
+  if (!name) {
+    res.status(401);
+    return res.json({ message: 'Missing driver name.' });
+  }
 
   next();
 };

@@ -24,3 +24,7 @@
 * Na raíz do repositório
 
     - `npm test`
+
+* Checar cobertura de testes
+
+    - `npx jest --coverage`

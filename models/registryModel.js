@@ -7,7 +7,7 @@ const create = (startDate, driver, car, reason) => {
   return db.registries[db.registries.length - 1];
 };
 
-const listById = (id) => db.registries.find((registry) => registry.id === id) || [];
+const listById = (id) => db.registries.find((registry) => registry.id === id) || {};
 
 const update = (id, endDate) => {
   const index = db.registries.findIndex((registry) => registry.id === id);

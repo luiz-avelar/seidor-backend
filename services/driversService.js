@@ -5,7 +5,7 @@ const create = (name) => driversModel.create(name);
 const update = (id, name) => {
   const driverExists = driversModel.listById(id);
 
-  if (driverExists.length === 0) {
+  if (Object.keys(driverExists).length === 0) {
     return {
       error: true,
       statusCode: 404,

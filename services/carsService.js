@@ -2,7 +2,7 @@ const { carsModel } = require('../models/index');
 
 const create = (plate, color, brand) => {
   const carExists = carsModel.listByPlate(plate);
-  if (carExists) {
+  if (Object.keys(carExists).length !== 0) {
     return {
       error: true,
       statusCode: 409,
@@ -16,7 +16,7 @@ const create = (plate, color, brand) => {
 const update = (plate, color, brand) => {
   const carExists = carsModel.listByPlate(plate);
 
-  if (!carExists) {
+  if (Object.keys(carExists).length === 0) {
     return {
       error: true,
       statusCode: 404,

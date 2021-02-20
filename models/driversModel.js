@@ -14,7 +14,7 @@ const update = (id, name) => {
   return db.drivers[index];
 };
 
-const listById = (id) => db.drivers.find((driver) => driver.id === id) || [];
+const listById = (id) => db.drivers.find((driver) => driver.id === id) || {};
 
 const remove = (id) => {
   const index = db.drivers.findIndex((driver) => driver.id === id);

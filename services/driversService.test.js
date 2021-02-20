@@ -15,7 +15,7 @@ describe('Drivers Service', () => {
 
   describe('update', () => {
     test("when driver's id informed is not registered should return not found error", () => {
-      jest.spyOn(driversModel, 'listById').mockReturnValueOnce([]);
+      jest.spyOn(driversModel, 'listById').mockReturnValueOnce({});
       const modelCall = jest.spyOn(driversModel, 'update');
       const errorReturn = { error: true, statusCode: 404, message: 'Driver not found.' };
       expect(driversService.update(mockDriver1.id, mockDriver2.name)).toEqual(errorReturn);

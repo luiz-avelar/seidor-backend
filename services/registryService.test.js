@@ -63,12 +63,20 @@ describe('Registry Service', () => {
 
   describe('update', () => {
     test("when registry's id informed is not valid should return not found error", () => {
-      jest.spyOn(registryModel, 'listById').mockReturnValueOnce([]);
+      jest.spyOn(registryModel, 'listById').mockReturnValueOnce({});
       const modelCall = jest.spyOn(registryModel, 'update');
       const errorReturn = { error: true, statusCode: 404, message: 'Registry not found.' };
       expect(registryService.update(mockRegistry1.id, mockRegistry1.endDate)).toEqual(errorReturn);
       expect(modelCall).not.toHaveBeenCalled();
     });
+
+    test('when registry has endDate it should not be updated and return error', () => {
+      jest.spyOn(registryModel, 'listById').mockReturnValueOnce({});
+      const modelCall = jest.spyOn(registryModel, 'update');
+      const errorReturn = { error: true, statusCode: 409, message: 'Car usage already finished.' };
+      expect(registryService.update(mockRegistry1.id, mockRegistry1.endDate)).toEqual(errorReturn);
+      expect(modelCall).not.toHaveBeenCalled();
+    })
 
     test('model layer should sucessfully be called', () => {
       jest.spyOn(registryModel, 'listById').mockReturnValueOnce({ ...mockRegistry1, endDate: '' });
@@ -94,7 +102,7 @@ describe('Registry Service', () => {
       .spyOn(registryModel, 'listAll')
       .mockReturnValue([mockRegistry1, mockRegistry2]);
 
-    test.only('return every registry successfully', () => {
+    test('return every registry successfully', () => {
       jest.spyOn(carsModel, 'listAll').mockReturnValue([availableCar, unavailableCar]);
       jest.spyOn(driversModel, 'listAll').mockReturnValue([availableDriver, unavailableDriver]);
 

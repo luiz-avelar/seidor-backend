@@ -1,6 +1,6 @@
 const db = require('./connection');
 
-const listByPlate = (plate) => db.cars.find((car) => car.plate === plate);
+const listByPlate = (plate) => db.cars.find((car) => car.plate === plate) || [];
 
 const create = (plate, color, brand) => {
   const car = { plate, color, brand, available: true };

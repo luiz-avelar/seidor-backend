@@ -37,11 +37,7 @@ const listAll = (color, brand) => {
   return carsList;
 };
 
-const listByPlate = (plate) => {
-  const car = carsModel.listByPlate(plate);
-  if (!car) return [];
-  return car;
-};
+const listByPlate = (plate) => carsModel.listByPlate(plate);
 
 module.exports = {
   create,

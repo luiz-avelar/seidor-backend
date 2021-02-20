@@ -9,18 +9,16 @@ const create = (startDate, driver, car, reason) => {
 
   if (!carAvailable) return { error: true, statusCode: 409, message: 'Car unavailable.' };
 
-  const registry = registryModel.create(startDate, driver, car, reason);
+  driversModel.toggleAvailability(driver);
+  carsModel.toggleAvailability(car);
 
-  driversModel.toggleAvailability(registry.driver);
-  carsModel.toggleAvailability(registry.car);
-
-  return registry;
+  return registryModel.create(startDate, driver, car, reason);
 };
 
 const update = (id, endDate) => {
   const registry = registryModel.listById(id);
 
-  if (!registry) return { error: true, statusCode: 404, message: 'Registry not found' };
+  if (registry.length === 0) return { error: true, statusCode: 404, message: 'Registry not found.' };
 
   driversModel.toggleAvailability(registry.driver);
   carsModel.toggleAvailability(registry.car);

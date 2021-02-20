@@ -1,49 +1,59 @@
-const { Router } = require('express');
 const { driversService } = require('../services/index');
-const middlewares = require('../middlewares/index');
 
-const drivers = Router();
-
-drivers.post('/', middlewares.validateDriverName, async (req, res) => {
+const driversPost = (req, res) => {
   const { name } = req.body;
 
   const registeredDriver = driversService.create(name);
 
-  return res.status(201).json(registeredDriver);
-});
+  res.status(201);
+  return res.json(registeredDriver);
+};
 
-drivers.put('/:id', middlewares.validateDriverName, middlewares.validateDriverId, (req, res) => {
+const driversPut = (req, res) => {
   const { name } = req.body;
   let { id } = req.params;
   id = parseInt(id);
 
   const driver = driversService.update(id, name);
 
-  if (driver.error) return res.status(driver.statusCode).json({ message: driver.message });
+  if (driver.error) {
+    res.status(driver.statusCode);
+    return res.json({ message: driver.message });
+  }
 
-  return res.status(200).json(driver);
-});
+  res.status(200);
+  return res.json(driver);
+};
 
-drivers.delete('/:id', middlewares.validateDriverId, async (req, res) => {
+const driversDelete = (req, res) => {
   let { id } = req.params;
   id = parseInt(id);
 
   driversService.remove(id);
 
-  return res.status(204).send();
-});
+  res.status(204);
+  return res.send();
+};
 
-drivers.get('/', (req, res) => {
+const driversGet = (req, res) => {
   const { name } = req.query;
   const driversList = driversService.listAll(name);
-  return res.status(200).json(driversList);
-});
+  res.status(200);
+  return res.json(driversList);
+};
 
-drivers.get('/:id', middlewares.validateDriverId, (req, res) => {
+const driversGetWithParams = (req, res) => {
   let { id } = req.params;
   id = parseInt(id);
   const driver = driversService.listById(id);
-  return res.status(200).json(driver);
-});
+  res.status(200);
+  return res.json(driver);
+};
 
-module.exports = drivers;
+module.exports = {
+  driversPost,
+  driversPut,
+  driversDelete,
+  driversGet,
+  driversGetWithParams,
+};

@@ -1,11 +1,6 @@
 const { registryService } = require('../services');
 const { registryController } = require('./index');
 
-const availableCar = { plate: 'var123', color: 'blue', brand: 'renault', available: true };
-const unavailableCar = { plate: 'const123', color: 'yellow', brand: 'renault', available: false };
-const availableDriver = { id: 1, name: 'Carlos', available: true };
-const unavailableDriver = { id: 2, name: 'Rogério', available: false };
-
 const mockRegistry1 = {
   startDate: '14/02/2021',
   endDate: '',

@@ -22,7 +22,7 @@ describe('Cars Service', () => {
     });
 
     test('register a car successfully', () => {
-      jest.spyOn(carsModel, 'listByPlate').mockReturnValueOnce(undefined);
+      jest.spyOn(carsModel, 'listByPlate').mockReturnValueOnce({});
       const modelCall = jest.spyOn(carsModel, 'create');
       expect(carsService.create(mockCar1.plate, mockCar1.color, mockCar1.brand)).toEqual(mockCar1);
       expect(modelCall).toHaveBeenCalledWith(mockCar1.plate, mockCar1.color, mockCar1.brand);
@@ -31,7 +31,7 @@ describe('Cars Service', () => {
 
   describe('update', () => {
     test('when plate informed is not registered should return not found error', () => {
-      jest.spyOn(carsModel, 'listByPlate').mockReturnValueOnce(undefined);
+      jest.spyOn(carsModel, 'listByPlate').mockReturnValueOnce({});
       const modelCall = jest.spyOn(carsModel, 'update');
       const errorReturn = { error: true, statusCode: 404, message: 'Car not found.' };
       expect(carsService.update(mockCar1.plate, mockCar1.color, mockCar1.brand)).toEqual(

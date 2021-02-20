@@ -57,7 +57,7 @@ describe('Cars Model', () => {
 
   test('list a registry by its id', () => {
     expect(registryModel.listById(mockRegistry1.id)).toEqual(mockRegistry1);
-    expect(registryModel.listById(-1)).toEqual({})
+    expect(registryModel.listById(-1)).toEqual({});
   });
 
   test('list every registry', () => {

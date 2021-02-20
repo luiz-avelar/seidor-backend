@@ -67,7 +67,8 @@ describe('carsController', () => {
       const req = {
         body: { color: mockCar1.color, brand: mockCar1.brand },
         params: { plate: mockCar1.plate },
-      };      const res = {
+      };
+      const res = {
         status: jest.fn(),
         json: jest.fn(),
       };
@@ -126,4 +127,5 @@ describe('carsController', () => {
       expect(res.status).toHaveBeenCalledWith(200);
       expect(res.json).toHaveBeenCalledWith(mockCar1);
     });
-  });});
+  });
+});

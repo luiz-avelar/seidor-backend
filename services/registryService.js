@@ -18,9 +18,11 @@ const create = (startDate, driver, car, reason) => {
 const update = (id, endDate) => {
   const registry = registryModel.listById(id);
 
-  if (Object.keys(registry).length === 0) return { error: true, statusCode: 404, message: 'Registry not found.' };
+  if (Object.keys(registry).length === 0)
+    return { error: true, statusCode: 404, message: 'Registry not found.' };
 
-  if (registry.endDate !== "") return { error: true, statusCode: 409, message: 'Car usage already finished.'}
+  if (registry.endDate !== '')
+    return { error: true, statusCode: 409, message: 'Car usage already finished.' };
 
   driversModel.toggleAvailability(registry.driver);
   carsModel.toggleAvailability(registry.car);

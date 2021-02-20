@@ -24,8 +24,8 @@ const mockRegistry2 = {
 
 describe('Registry Service', () => {
   describe('create', () => {
-    const mockRequest = {...mockRegistry1}
-    delete mockRequest.endDate
+    const mockRequest = { ...mockRegistry1 };
+    delete mockRequest.endDate;
     test('when a driver is unavailable should return error', () => {
       jest.spyOn(driversModel, 'listById').mockReturnValueOnce(unavailableDriver);
       const expectedReturn = { error: true, statusCode: 409, message: 'Driver unavailable.' };
@@ -78,7 +78,7 @@ describe('Registry Service', () => {
       const errorReturn = { error: true, statusCode: 409, message: 'Car usage already finished.' };
       expect(registryService.update(mockRegistry1.id, mockRegistry1.endDate)).toEqual(errorReturn);
       expect(modelCall).not.toHaveBeenCalled();
-    })
+    });
 
     test('model layer should sucessfully be called', () => {
       jest.spyOn(registryModel, 'listById').mockReturnValueOnce({ ...mockRegistry1, endDate: '' });

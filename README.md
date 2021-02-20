@@ -2,7 +2,6 @@
 
 ## Teste Técnico Prático de Backend Seidor
 
-
 ### Como executar
 
 1. Clone o repositório
@@ -13,18 +12,18 @@
 
 2. Instale as dependências
 
-    - `npm install`
+   - `npm install`
 
 3. Inicie a aplicação
 
-    - `npm start`
+   - `npm start`
 
 ### Como testar
 
-* Na raíz do repositório
+- Na raíz do repositório
 
-    - `npm test`
+  - `npm test`
 
-* Checar cobertura de testes
+- Checar cobertura de testes
 
-    - `npx jest --coverage`
+  - `npx jest --coverage`
